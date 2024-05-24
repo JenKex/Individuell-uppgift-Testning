@@ -14,7 +14,7 @@ const todos = [
 const days = splitTodosIntoDays(todos)
 
 describe('testing the Day component', () => {
-    it('should show the day of the week', () => {
+    it('should display the day associated with its task', () => {
         cy.mount(<Day day={days[0]} />)
         cy.contains('Måndag').should('be.visible')
     })

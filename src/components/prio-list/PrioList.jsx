@@ -40,7 +40,7 @@ const PrioList = () => {
 	};
 
 	return (
-		<div className="prio-list">
+		<div data-cy="prio-list" className="prio-list">
 			<h2 data-cy="finished-tasks">Färdiga uppgifter: {doneTodos}</h2>
 			<h2> Vad ska jag göra nu? </h2>
 			<div className="list-container">

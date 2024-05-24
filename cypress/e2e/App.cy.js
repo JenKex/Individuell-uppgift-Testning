@@ -10,7 +10,7 @@ describe('E2E-tests simulating user stories', () => {
         cy.get('.item').contains('Repetera lektionen').siblings('[data-cy="delete-button"]').click()
         // Write cy-get-searchfield, type.'övning', find it in schedule, checking it off, delete other task cy.get('footer').contains('Idag är det:')
     })
-    it('should depict a user searching for a task, then checking off it', () =>{
+    it('should depict a user searching for a task, then checking it off', () =>{
         cy.visit('/')
         cy.get('[data-cy="search-field"]').click()
         .type('Distans')
@@ -18,8 +18,9 @@ describe('E2E-tests simulating user stories', () => {
         // searchelement.contains('Distans')
         cy.get('.item').contains('Distans').siblings('[data-cy="checkbox"]').click()
     })
-    it('should depict a user checking the entire list of tasks', () => {
+    it('should depict a user resetting the week, then checking the entire list of tasks', () => {
         cy.visit('/')
+        cy.get('[data-cy="restart-week"]').click()
         cy.get('[data-cy="checkbox"]').check({multiple : true})
     })
 })
