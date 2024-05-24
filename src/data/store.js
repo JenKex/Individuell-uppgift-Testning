@@ -36,8 +36,6 @@ const useStore = create(set => ({
         })),
 
 	toggleTodo: id => set(state => {
-		// Det är möjligt att det finns en liiiiiten bug här, som man i så fall skulle upptäcka när man testar 😇
-		// Den lilla buggen -- möjligt att ...t ska ske innan done: !t.done, annars nollställs objektet till sin ursprungliga kopia?
 		return {
 			...state,
 			todos: state.todos.map(t => {
@@ -50,9 +48,15 @@ const useStore = create(set => ({
 		}
 	}),
 
-	resetTodos: () => set(state => ({ todos: [] })),
-
-	// TODO: lägg till en funktion "setTodos" så att du kan ändra innehållet i store från dina testfiler
+	resetTodos: () => set(state => {
+		return {
+			...state,
+			todos: state.todos.map(t => {
+				return {
+					...t, done: false
+				}
+			})
+	}}),
 
 }))
 

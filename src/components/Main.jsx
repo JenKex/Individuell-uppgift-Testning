@@ -1,4 +1,5 @@
 import { useStore } from '../data/store.js'
+import { useState } from 'react'
 import Day from "./day/Day"
 import PrioList from "./prio-list/PrioList.jsx"
 import { splitTodosIntoDays } from '../utils/list.js'
@@ -17,7 +18,7 @@ const Main = () => {
 					<Day day={d} key={d.dayname} />
 				))}
 			</div>
-
+			
 			<hr />
 
 			<PrioList />
