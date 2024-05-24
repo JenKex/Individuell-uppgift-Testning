@@ -8,36 +8,12 @@ const useStore = create(set => ({
 	setTodos: newTodos => set((state) => ({
 		todos: newTodos
 	})),
-	
-	//Daglista:
-	// [{
-	// 	day: 'måndag',
-	// 	id: 1
-	// },
-	// {
-	// 	day: 'tisdag',
-	// 	id: 2,
-	// },
-	// {
-	// 	day: 'onsdag',
-	// 	id: 3
-	// },
-	// {
-	// 	day: 'torsdag',
-	// 	id: 4
-	// },
-	// {
-	// 	day: 'fredag',
-	// 	id: 5
-	// },
-	// {
-	// 	day: 'lördag',
-	// 	id: 6
-	// },
-	// {
-	// 	day: 'söndag',
-	// 	id: 7
-	// }], 
+
+	search: [],
+
+	setSearch: newTodos => set((state) => ({
+		search: newTodos
+	})),
 
 	todayName: getToday(),
 	// TODO: du behöver en funktion setTodayName för att kunna testa appen med olika veckodagar
@@ -46,6 +22,18 @@ const useStore = create(set => ({
 		todayName: newDay
 	})),
 
+	updateTask: (updatedTask) =>
+		set((state) => ({
+			todos: state.todos.map((task) => task.id === updatedTask.id ? {
+				...task,
+				text: updatedTask.text
+			} : task)
+		})),
+
+	deleteTask: (id) =>
+        set((state) => ({
+            todos: state.todos.filter((task) => task.id !== id)
+        })),
 
 	toggleTodo: id => set(state => {
 		// Det är möjligt att det finns en liiiiiten bug här, som man i så fall skulle upptäcka när man testar 😇

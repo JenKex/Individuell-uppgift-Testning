@@ -4,7 +4,7 @@ const PrioItem = ({ item, num }) => {
 	if( item.late ) itemClass += ' due'
 
 	return (
-		<div className={itemClass}>
+		<div data-cy="prio-item" className={itemClass}>
 			{num}. {item.text}
 		</div>
 	)

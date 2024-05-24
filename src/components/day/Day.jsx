@@ -3,12 +3,11 @@ import Item from "./Item"
 // OBS, det är tillåtet att lägga till flera props
 // När du testar, rendera komponenten med olika värden på props
 const Day = ({ day }) => {
-	// TODO: implement rest of week
 
 	console.log(day)
 
 	return (
-		<div className="day">
+		<div data-cy="day-div" className="day">
 			<h2> {day.dayname} </h2>
 
 			{day.daytask.map(item => (
