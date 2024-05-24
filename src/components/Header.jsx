@@ -6,7 +6,7 @@ const Header = () => {
 
 	return (<header>
 		<h1> Min vecka </h1>
-		<button className="restart-week" onClick={resetTodos}> Starta om vecka </button>
+		<button data-cy="restart-week" className="restart-week" onClick={resetTodos}> Starta om vecka </button>
 	</header>)
 }
 

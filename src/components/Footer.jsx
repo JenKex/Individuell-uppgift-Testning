@@ -6,7 +6,7 @@ const Footer = () => {
 
 	return (
 		<footer>
-			<p> Idag är det: {todayName} </p>
+			<p data-cy="weekday-display"> Idag är det: {todayName} </p>
 			<p> Studieguide | 2024 </p>
 		</footer>
 	)

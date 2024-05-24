@@ -13,10 +13,6 @@ const Day = ({ day }) => {
 			{day.daytask.map(item => (
 				<Item key={item.id} item={item} />
 			))}
-
-			<div className="controls">
-				<button> Ny uppgift </button>
-			</div>
 		</div>
 	)
 }

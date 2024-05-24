@@ -15,15 +15,21 @@ describe('', () => {
 		expect(Array.isArray(splitTodosIntoDays(testdata))).toBeTruthy()
 	})
 	
-	it('returns days of the week', () => {
+	it('can return a day of the week', () => {
 		const days = splitTodosIntoDays(testdata)
-		const day = days[0]
+		const day = days[0].dayname
 		expect(day).toContain('Måndag')
+	})
+
+	it('returns all days of the week', () => {
+		const days = splitTodosIntoDays(testdata)
+		expect(days).toHaveLength(7)
 	})
 	
 	it('returns tasks filtered by day', () => {
 		const days = splitTodosIntoDays(testdata)
-		const day = days[2]
-		expect(day).toContain('ti')
+		const daytask = days[0].daytask
+		expect(daytask).toHaveProperty('day', 'må')
+		// expect(daytask).toContain('må')
 	})
 })

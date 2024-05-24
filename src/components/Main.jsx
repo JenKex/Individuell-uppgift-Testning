@@ -13,12 +13,12 @@ const Main = () => {
 
 	return (
 		<main>
-			<div className="day-view">
+			<div data-cy="day-view" className="day-view">
 				{days.map(d => (
 					<Day day={d} key={d.dayname} />
 				))}
 			</div>
-			
+
 			<hr />
 
 			<PrioList />

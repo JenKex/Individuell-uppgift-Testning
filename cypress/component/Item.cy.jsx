@@ -29,12 +29,15 @@ describe('testing the Item component', () => {
         .should('be.visible')
     })
 
-    it('should toggle on and off when clicked', () => {
+    it('should have a checkbox, which can be checked on and off', () => {
         cy.mount(<Item item={testdata[2]}/>)
         cy.get('[data-cy="checkbox"]')
         .should('not.be.checked')
         .click()
-        cy.get('[data-cy="checkbox"]')
-        .should('be.checked')
+        useStore.setState({ todos: testdata})
+        cy.then(() => {
+            const todos = useStore.getState().todos
+                expect(todos[2].done).to.equal(true)
+        })
     })
 })

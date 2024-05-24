@@ -41,12 +41,12 @@ const PrioList = () => {
 
 	return (
 		<div className="prio-list">
-			<h2>Färdiga uppgifter: {doneTodos}</h2>
+			<h2 data-cy="finished-tasks">Färdiga uppgifter: {doneTodos}</h2>
 			<h2> Vad ska jag göra nu? </h2>
 			<div className="list-container">
 				<input data-cy="search-field" type="search" placeholder="Filtrera uppgifter" value={searchValue} onChange={handleSearch} />
 
-				<div className="prio-items">
+				<div data-cy="prio-items" className="prio-items">
 					{searchValue === '' ?
 						items.map((item, index) =>
 							<PrioItem key={item.id} item={item} num={index + 1} />
