@@ -1,6 +1,16 @@
 // import App from '../../src/App.jsx'
 
 describe('E2E-tests simulating user stories', () => {
+    it('should check that all days of the week render', () => {
+        cy.visit('/')
+        cy.contains('Måndag').should('be.visible')
+        cy.contains('Tisdag').should('be.visible')
+        cy.contains('Onsdag').should('be.visible')
+        cy.contains('Torsdag').should('be.visible')
+        cy.contains('Fredag').should('be.visible')
+        cy.contains('Lördag').should('be.visible')
+        cy.contains('Söndag').should('be.visible')
+    })
     it('should depict a user editing, saving, checking and deleting a task', () => {
         cy.visit('/')
         cy.get('.item').contains('Distans').siblings('[data-cy="edit-button"]').click()

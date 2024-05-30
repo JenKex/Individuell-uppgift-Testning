@@ -10,14 +10,16 @@ const PrioList = () => {
 	}))
 	
 	let items = todos.filter(t => !t.done)
-	
+
 	useEffect(() => {
+		checkTotalTodos()
 		checkTodos()
     }, [todos]);
 
 
 	const [searchValue, setSearchValue] = useState('')
 	const [doneTodos, setDoneTodos] = useState(0)
+	const [totalTodos, setTotalTodos] = useState(0)
 
 	const handleSearch = (e) => {
 		const value = e.target.value;
@@ -39,9 +41,17 @@ const PrioList = () => {
 		setDoneTodos(i)
 	};
 
+	function checkTotalTodos(){
+		let i = 0
+		todos.forEach(todo => {
+			i++
+		})
+		setTotalTodos(i)
+	}
+
 	return (
 		<div data-cy="prio-list" className="prio-list">
-			<h2 data-cy="finished-tasks">Färdiga uppgifter: {doneTodos}</h2>
+			<h2 data-cy="finished-tasks">Färdiga uppgifter: {doneTodos} av totalt {totalTodos}</h2>
 			<h2> Vad ska jag göra nu? </h2>
 			<div className="list-container">
 				<input data-cy="search-field" type="search" placeholder="Filtrera uppgifter" value={searchValue} onChange={handleSearch} />
